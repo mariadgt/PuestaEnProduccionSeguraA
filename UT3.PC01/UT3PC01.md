@@ -10,7 +10,7 @@ Herramienta de seguridad que verifica la configuración de un host Docker contra
 
 Comenzamos clonando el repositorio e iniciando la prueba:
 
-![1.JPG](https://github.com/mariadgt/PuestaEnProduccionSeguraA/UT3PC01/img/1.jpg)
+![1.JPG](https://github.com/mariadgt/PuestaEnProduccionSeguraA/UT3.PC01/img/1.jpg)
 
 Los “WARN” que nos aparecen son debido a:
 
@@ -63,7 +63,7 @@ Nos metemos en el fichero `/etc/audit/rules.d/audit.rules` y añadimos las sigui
 -w /usr/bin/docker-runc -p wa
 ```
 
-![2.JPG](https://github.com/mariadgt/PuestaEnProduccionSeguraA/UT3PC01/img/2.jpg)
+![2.JPG](https://github.com/mariadgt/PuestaEnProduccionSeguraA/UT3.PC01/img/2.jpg)
 
 > Estas líneas solucionarían el último warnig los “Warn” que nos aparecían al ejecutar el Docker-bench.
 > 
@@ -84,7 +84,7 @@ Ahora vamos a configurar auditd para que no nos falle Docker-bench, para ello cr
    }
 ```
 
-![3.JPG](https://github.com/mariadgt/PuestaEnProduccionSeguraA/UT3PC01/img/3.jpg)
+![3.JPG](https://github.com/mariadgt/PuestaEnProduccionSeguraA/UT3.PC01/img/3.jpg)
 
 ## Trivy.
 
@@ -105,7 +105,7 @@ Vamos a hacer un testeo a un dockerfile que tengamos por aqui:
 trivy config Dockerfile
 ```
 
-![4.JPG](https://github.com/mariadgt/PuestaEnProduccionSeguraA/UT3PC01/img/4.jpg)
+![4.JPG](https://github.com/mariadgt/PuestaEnProduccionSeguraA/UT3.PC01/img/4.jpg)
 
 > Nos avisa que creemos un usuario que no sea root para ejecutar las cosas del dockerfile.
 > 
@@ -120,10 +120,10 @@ Vamos a compararlas:
 
 `trivy image wordpress:latest`
 
-![5.JPG](https://github.com/mariadgt/PuestaEnProduccionSeguraA/UT3PC01/img/5.jpg)
+![5.JPG](https://github.com/mariadgt/PuestaEnProduccionSeguraA/UT3.PC01/img/5.jpg)
 
 `trivy image wordpress:4.6`
 
-![6.JPG](https://github.com/mariadgt/PuestaEnProduccionSeguraA/UT3PC01/img/6.jpg)
+![6.JPG](https://github.com/mariadgt/PuestaEnProduccionSeguraA/UT3.PC01/img/6.jpg)
 
 Podemos comprobar que aún en la última versión no se han encontrado tantos errores como en la versión 4.6, esta tiene un gran número de errores desconocidos en comparación con la última. Vemos también que en la versión más reciente aún no se han solucionado los problemas encontrados mientras que en la 4.6 vemos que ya tiene solución.
